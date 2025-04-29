@@ -4,72 +4,51 @@ public class EjecutorAutomotor {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Cédula del dueño: ");
-        String cedulaDueno = sc.nextLine();
+        System.out.print("Ingrese cédula del dueño: ");
+        String cedula = sc.nextLine();
 
-        System.out.print("Marca del vehículo: ");
-        String marcaVeh = sc.nextLine();
+        System.out.print("Ingrese marca del vehículo: ");
+        String marca = sc.nextLine();
 
-        System.out.print("Año de fabricación: ");
-        int anioFabr = sc.nextInt();
+        System.out.print("Ingrese año de fabricación: ");
+        int anio = sc.nextInt();
 
-        System.out.print("Valor del vehículo: ");
-        double valorVeh = sc.nextDouble();
-        Automotor auto = new Automotor(cedulaDueno, marcaVeh, anioFabr, valorVeh);
-        System.out.println(auto);
+        System.out.print("Ingrese valor del vehículo: ");
+        double valor = sc.nextDouble();
+
+        Automotor automotor = new Automotor(cedula, marca, anio, valor);
+        automotor.calcularValorMatricula();
+
+        System.out.println(automotor);
     }
 }
 
+
 class Automotor {
-    private String cedulaDueno;
-    private String marcaVeh;
-    private int anioFabr;
-    private double valorVeh;
+    private String cedulaDuenio;
+    private String marcaVehiculo;
+    private int anioFabricacion;
+    private double valorVehiculo;
     private double valorMatricula;
 
-    public Automotor(String cedulaDueno, String marcaVeh, int anioFabr, double valorVeh) {
-        this.cedulaDueno = cedulaDueno;
-        this.marcaVeh = marcaVeh;
-        this.anioFabr = anioFabr;
-        this.valorVeh = valorVeh;
-        calcularValorMatricula();
+    public Automotor(String cedulaDuenio, String marcaVehiculo, int anioFabricacion, double valorVehiculo) {
+        this.cedulaDuenio = cedulaDuenio;
+        this.marcaVehiculo = marcaVehiculo;
+        this.anioFabricacion = anioFabricacion;
+        this.valorVehiculo = valorVehiculo;
     }
 
-    private void calcularValorMatricula() {
+    public void calcularValorMatricula() {
         int anioActual = java.time.Year.now().getValue();
-        int antiguedad = anioActual - anioFabr;
-        this.valorMatricula = valorVeh * 0.002 * antiguedad;
+        int antiguedad = anioActual - anioFabricacion;
+        this.valorMatricula = valorVehiculo * 0.002 * antiguedad;
     }
 
-    public String getCedulaDuenio() {
-        return cedulaDueno;
-    }
-
-    public String getMarcaVehiculo() {
-        return marcaVeh;
-    }
-
-    public int getAnioFabricacion() {
-        return anioFabr;
-    }
-
-    public double getValorVehiculo() {
-        return valorVeh;
-    }
-
-    public double getValorMatricula() {
-        return valorMatricula;
-    }
-    
     public String toString() {
         return String.format(
-            "Automotor:%n" +
-            "  Dueño (cédula): %s%n" +
-            "  Marca: %s%n" +
-            "  Año fabric.: %d%n" +
-            "  Valor vehículo: $%.2f%n" +
-            "  Valor matrícula: $%.2f",
-            cedulaDueno, marcaVeh, anioFabr, valorVeh, valorMatricula
+            "Automotor:%nDueño: %s%nMarca: %s%nAño: %d%nValor: $%.2f%nMatrícula: $%.2f",
+            cedulaDuenio, marcaVehiculo, anioFabricacion, valorVehiculo, valorMatricula
         );
     }
 }
+
