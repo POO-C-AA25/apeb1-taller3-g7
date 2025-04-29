@@ -1,36 +1,11 @@
-
-public class EjecutorTerreno {
-
-public static Terreno terrenoX = new Terreno();
-    public static void main(String[] args) {
-        double ancho=(Math.random()*10)+1;
-        double largo=(Math.random()*10)+1;
-        double valorMetroCuadrado=(Math.random()*10)+1;
-        terrenoX.setAncho(ancho);
-        terrenoX.setLargo(largo);
-        terrenoX.setValorMetroCuadrado(valorMetroCuadrado);
-        terrenoX.calcularArea();
-        terrenoX.calcularCostoTerreno();
-        System.out.println("terrenoX: "+terrenoX.toString());
-        System.out.println("FORMA EFICIENTE");
-        Terreno miTerreno = new Terreno (2,3,3);
-        miTerreno.calcularArea();
-        miTerreno.calcularCostoTerreno();
-        System.out.println("Miterreno " + miTerreno.toString());
-        
-    }
-   
-}
-  
-
-class Terreno{
+class Problema_1_Terreno{
     public double ancho;
     public double largo;
     public double valorMetroCuadrado;
     public double area;
     public double costo_terreno;
-    public Terreno(){}
-    public Terreno(double ancho, double largo, double valorMetroCuadrado){
+    public Problema_1_Terreno(){}
+    public Problema_1_Terreno(double ancho, double largo, double valorMetroCuadrado){
         this.ancho = ancho;
         this.largo= largo;
         this.valorMetroCuadrado = valorMetroCuadrado;
