@@ -19,8 +19,10 @@ public class Problema_10_EjecutorCandidatoPresidencial {
         System.out.print("Número de propuestas clave: ");
         int numeroPropuestas = sc.nextInt();
         sc.nextLine();
+        
         Problema_10_CandidatoPresidencial candidatoCompleto = new Problema_10_CandidatoPresidencial(nombre, edad, partidoPolitico, planGobierno, numeroPropuestas);
-
+        String cumple = Problema_10_CandidatoPresidencial.verificarEdadMinima(edad);
+        candidatoCompleto.setCumpleEdad(cumple);
         System.out.println("\nIngrese los datos del segundo candidato (nombre y partido):");
         System.out.print("Nombre: ");
         String nombre2 = sc.nextLine();
@@ -28,14 +30,14 @@ public class Problema_10_EjecutorCandidatoPresidencial {
         String partido2 = sc.nextLine();
 
         Problema_10_CandidatoPresidencial candidatoSimple = new Problema_10_CandidatoPresidencial(nombre2, partido2);
-
+        candidatoSimple.setCumpleEdad("No disponible");
         System.out.println("\nPrimer candidato:");
         System.out.println(candidatoCompleto);
-        System.out.println("Cumple edad mínima: " + (candidatoCompleto.validarEdad() ? "Sí" : "No"));
+        
 
         System.out.println("\nSegundo candidato:");
         System.out.println(candidatoSimple);
-        System.out.println("Cumple edad mínima: " + (candidatoSimple.validarEdad() ? "Sí" : "No"));
+        candidatoSimple.setCumpleEdad("No disponible");
     }
 }
 

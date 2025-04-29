@@ -1,10 +1,11 @@
 class Problema_10_CandidatoPresidencial {
 
-    private String nombre;
-    private int edad;
-    private String partidoPolitico;
-    private String planGobierno;
-    private int numeroPropuestas;
+    public String nombre;
+    public int edad;
+    public String partidoPolitico;
+    public String planGobierno;
+    public int numeroPropuestas;
+    public String cumpleEdad;
 
     public Problema_10_CandidatoPresidencial() {
     }
@@ -25,8 +26,12 @@ class Problema_10_CandidatoPresidencial {
         this.edad = 0;
     }
 
-    public boolean validarEdad() {
-        return edad >= 35;
+    public static String verificarEdadMinima(int edad) {
+        if (edad >= 35) {
+            return "Sí";
+        } else {
+            return "No";
+        }
     }
 
     public String getNombre() {
@@ -68,11 +73,13 @@ class Problema_10_CandidatoPresidencial {
     public void setNumeroPropuestas(int numeroPropuestas) {
         this.numeroPropuestas = numeroPropuestas;
     }
-
+    public void setCumpleEdad(String cumpleEdad) {
+        this.cumpleEdad = cumpleEdad;
+}
     public String toString() {
         return String.format(
-                "Nombre: %s\nEdad: %d\nPartido Político: %s\nPlan de Gobierno: %s\nNúmero de Propuestas: %d",
-                nombre, edad, partidoPolitico, planGobierno, numeroPropuestas
+            "Candidato Presidencial\nNombre: %s\nEdad: %d\nPartido: %s\nPlan de Gobierno: %s\nPropuestas Clave: %d\nCumple edad mínima: %s",
+            nombre, edad, partidoPolitico, planGobierno, numeroPropuestas, cumpleEdad
         );
     }
-}
+ }
