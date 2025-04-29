@@ -5,6 +5,7 @@ public class EjecutorProfesor {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         System.out.print("Nombre: ");
         String nombre = sc.nextLine();
 
@@ -15,10 +16,8 @@ public class EjecutorProfesor {
         String cedula = sc.nextLine();
 
         System.out.print("Sueldo básico: ");
-        double sueldoBasico = sc.nextDouble();
-
-        Profesor profesor = new Profesor(nombre, apellido, cedula, sueldoBasico);
-
+        double sueldo_basico = sc.nextDouble();
+        Profesor profesor = new Profesor(nombre, apellido, cedula, sueldo_basico);
         System.out.println(profesor);
     }
 }
@@ -28,39 +27,15 @@ class Profesor {
     private String nombre;
     private String apellido;
     private String cedula;
-    private double sueldoBasico;
-    private double sueldoTotal;
+    private double sueldo_basico;
+    private double sueldo_total;
 
-    public Profesor(String nombre, String apellido, String cedula, double sueldoBasico) {
+    public Profesor(String nombre, String apellido, String cedula, double sueldo_basico) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
-        this.sueldoBasico = sueldoBasico;
-        calcularSueldoTotal();
-    }
-
-    private void calcularSueldoTotal() {
-        this.sueldoTotal = this.sueldoBasico * 1.2;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public String getCedula() {
-        return cedula;
-    }
-
-    public double getSueldoBasico() {
-        return sueldoBasico;
-    }
-
-    public double getSueldoTotal() {
-        return sueldoTotal;
+        this.sueldo_basico = sueldo_basico;
+        this.sueldo_total = sueldo_basico * 1.2;
     }
 
     public String toString() {
@@ -68,9 +43,9 @@ class Profesor {
                 "Profesor: %s %s%n"
                 + "Cédula: %s%n"
                 + "Sueldo Básico: $%.2f%n"
-                + "Sueldo Total (+20%%): $%.2f",
+                + "Sueldo Total:  $%.2f",
                 nombre, apellido, cedula,
-                sueldoBasico, sueldoTotal
+                sueldo_basico, sueldo_basico
         );
     }
 }
